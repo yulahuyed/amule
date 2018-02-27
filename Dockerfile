@@ -51,9 +51,10 @@ RUN mkdir -p /opt/amule && \
     make install
 
 # Add startup script
+RUN mkdir -p /home/amule/.aMule
+
 ADD amule.sh /home/amule/amule.sh
 
-# Add user and home
 RUN chmod -R 777 /home/amule
 
 RUN rm -rf /var/cache/apk/* && rm -rf /opt && apk del build-dependencies
