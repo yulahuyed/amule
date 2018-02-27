@@ -61,7 +61,7 @@ RUN addgroup -g 5000 amule && \
     chmod a+x /home/amule/amule.sh
 
 RUN rm -rf /var/cache/apk/* && rm -rf /opt && apk del build-dependencies
-RUN apk del gd geoip libpng libwebp runit wxgtk2.8 zlib alpine-sdk automake autoconf bison g++ gcc gd-dev geoip-dev gettext gettext-dev git libpng-dev libwebp-dev libtool libsm-dev make musl-dev wget wxgtk2.8-dev zlib-dev
+RUN apk del alpine-sdk g++ gcc git
 
 EXPOSE 4711/tcp 4712/tcp 4672/udp 4665/udp 4662/tcp 4661/tcp
 
