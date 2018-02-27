@@ -54,11 +54,7 @@ RUN mkdir -p /opt/amule && \
 ADD amule.sh /home/amule/amule.sh
 
 # Add user and home
-RUN addgroup -g 5000 amule && \
-    adduser -S -s /sbin/nologin -u 5000 -h "/home/amule" -G amule amule && \
-    chown -R 5000:5000 /home/amule && \
-    chown amule.amule /home/amule/amule.sh && \
-    chmod a+x /home/amule/amule.sh
+RUN chmod -R 777 /home/amule
 
 RUN rm -rf /var/cache/apk/* && rm -rf /opt && apk del build-dependencies
 
