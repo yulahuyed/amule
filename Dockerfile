@@ -75,8 +75,7 @@ ADD *.sh /home/amule/
 
 RUN chmod -R 777 /home/amule
 
-RUN apk del build-dependencies gd geoip libpng libwebp runit wxgtk2.8 zlib alpine-sdk automake autoconf bison g++ gcc gd-dev geoip-dev gettext gettext-dev git libpng-dev libwebp-dev libtool libsm-dev make musl-dev wget curl wxgtk2.8-dev zlib-dev
-RUN rm -rf /opt
+RUN rm -rf /var/cache/apk/* && rm -rf /opt && apk del build-dependencies
 
 WORKDIR /home/amule/.aMule
 
