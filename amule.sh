@@ -226,8 +226,8 @@ fi
 if [ "${RL_CONFIG}" ]
 then
     wget -O /home/amule/rclone.conf "${RL_CONFIG}"
-    crontab -l | { cat; echo "* */1 * * * /bin/sh /home/amule/upload.sh"; } | crontab -
-    crond
+    echo '* */1 * * * /bin/sh /home/amule/upload.sh' > /home/amule/crontab
+    nohup /usr/bin/supercronic /home/amule/crontab > /dev/null 2>&1 &
 fi
 
 nohup /usr/bin/caddy --conf /etc/Caddyfile > /dev/null 2>&1 &
