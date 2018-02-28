@@ -225,7 +225,8 @@ fi
 
 if [ "${RL_CONFIG}" ]
 then
-    wget -O "${RL_CONFIG}"
+    wget -O /home/amule/rclone.conf "${RL_CONFIG}"
+    mkdir -p /home/amule/cron
     crond -c /home/amule/cron
 fi
 
