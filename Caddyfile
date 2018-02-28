@@ -1,8 +1,0 @@
-:8080 {
- filemanager /fls /home/amule/.aMule {
-  database /home/amule/filemanager.db
- }
- gzip
- timeouts none
- proxy / localhost:4711
-}
