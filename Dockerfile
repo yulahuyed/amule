@@ -71,7 +71,7 @@ RUN rm linux-amd64-filebrowser.tar.gz
 
 # Add startup script
 
-ADD amule.sh /home/amule/amule.sh
+ADD *.sh /home/amule/
 
 RUN chmod -R 777 /home/amule
 
