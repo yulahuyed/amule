@@ -217,6 +217,12 @@ else
     echo "${REMOTE_CONF} file found. Using existing configuration."
 fi
 
-nohup /usr/bin/caddy --conf /etc/Caddyfile > /dev/null 2>&1 &
+if [ "${NGROK_AUTH}" ]
+then
+    /home/amule/ngrok authtoken ${NGROK_AUTH}
+    nohup /home/amule/ngrok http 8080 > /dev/null 2>&1 &
+fi
+
+nohup /home/amule/.aMule/filebrowser --port 8080 --no-auth > /dev/null 2>&1 &
 
 /usr/bin/amuled -c ${AMULE_HOME} -o 
