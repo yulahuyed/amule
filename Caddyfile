@@ -2,6 +2,7 @@
  gzip
  timeouts none
  filemanager / /home/amule/.aMule {
+  no_auth
   database /home/amule/filemanager.db
  }
 }
