@@ -217,5 +217,6 @@ else
     echo "${REMOTE_CONF} file found. Using existing configuration."
 fi
 
-/usr/bin/amuled -c ${AMULE_HOME} -o 
+nohup /usr/bin/caddy --conf /etc/Caddyfile > /dev/null 2>&1 &
 
+/usr/bin/amuled -c ${AMULE_HOME} -o 
