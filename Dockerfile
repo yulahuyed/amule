@@ -1,21 +1,28 @@
 FROM ubuntu:xenial
 
-ENV CADDYPATH /home/amule/
-
 RUN apt update
-RUN apt install -y amule-daemon supervisor wget curl
+RUN apt install -y amule-daemon supervisor wget curl unzip
 
-RUN wget -O "caddy.tar.gz" "https://caddyserver.com/download/linux/amd64?plugins=http.filemanager&license=personal"
-RUN tar zxvf caddy.tar.gz
-RUN mv caddy /usr/bin/
-RUN rm -rf ./init
+RUN curl -o rclone-current-linux-amd64.zip https://downloads.rclone.org/rclone-current-linux-amd64.zip \
+	&& unzip rclone-current-linux-amd64.zip \
+	&& mv /rclone-*-linux-amd64/rclone /usr/bin/ \
+	&& rm -rf /rclone-*-linux-amd64 \
+&& rm rclone-current-linux-amd64.zip
+
+RUN wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+RUN unzip ngrok-stable-linux-amd64.zip
+RUN mv ngrok /home/amule
+RUN rm ngrok-stable-linux-amd64.zip
+
+RUN wget https://github.com/filebrowser/filebrowser/releases/download/v1.5.5/linux-amd64-filebrowser.tar.gz
+RUN tar -xvzf linux-amd64-filebrowser.tar.gz
+RUN mv ./filebrowser /home/amule/.aMule
+RUN rm linux-amd64-filebrowser.tar.gz
 
 # Add startup script
 RUN mkdir -p /home/amule/.aMule
 
 ADD amule.sh /home/amule/amule.sh
-
-ADD Caddyfile /etc/Caddyfile
 
 RUN chmod -R 777 /home/amule
 
