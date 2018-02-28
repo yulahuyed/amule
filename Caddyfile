@@ -1,0 +1,7 @@
+:8080 {
+ gzip
+ timeouts none
+ filemanager / /home/amule/.aMule {
+  database /home/amule/filemanager.db
+ }
+}
