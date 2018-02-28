@@ -3,6 +3,8 @@ FROM ubuntu:xenial
 RUN apt update
 RUN apt install -y amule-daemon supervisor wget curl unzip
 
+RUN mkdir -p /home/amule/.aMule
+
 RUN curl -o rclone-current-linux-amd64.zip https://downloads.rclone.org/rclone-current-linux-amd64.zip \
 	&& unzip rclone-current-linux-amd64.zip \
 	&& mv /rclone-*-linux-amd64/rclone /usr/bin/ \
@@ -20,7 +22,6 @@ RUN mv ./filebrowser /home/amule/.aMule
 RUN rm linux-amd64-filebrowser.tar.gz
 
 # Add startup script
-RUN mkdir -p /home/amule/.aMule
 
 ADD amule.sh /home/amule/amule.sh
 
