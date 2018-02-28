@@ -1,5 +1,7 @@
 FROM ubuntu:xenial
 
+ENV CADDYPATH /home/amule/
+
 RUN apt update
 RUN apt install -y amule-daemon supervisor wget curl
 
