@@ -1,5 +1,5 @@
-:8080
-{
+:8080 {
+ root /home/amule
  gzip
  timeouts none
  proxy /amule localhost:4711
