@@ -4,6 +4,7 @@ MAINTAINER docker@chabs.name
 ENV AMULE_VERSION 2.3.2
 ENV UPNP_VERSION 1.6.22
 ENV CRYPTOPP_VERSION CRYPTOPP_5_6_5
+ENV CADDYPATH /home/amule/
 
 RUN apk --update add gd geoip libpng libwebp runit wxgtk2.8 zlib && \
     apk --update add --virtual build-dependencies alpine-sdk automake autoconf bison g++ gcc gd-dev geoip-dev gettext gettext-dev git libpng-dev libwebp-dev libtool libsm-dev make musl-dev wget curl wxgtk2.8-dev zlib-dev
