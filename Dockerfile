@@ -63,13 +63,14 @@ RUN unzip ngrok-stable-linux-amd64.zip
 RUN mv ngrok /home/amule
 RUN rm ngrok-stable-linux-amd64.zip
 
-RUN wget https://github.com/filebrowser/filebrowser/releases/download/v1.5.5/linux-amd64-filebrowser.tar.gz
-RUN tar -xvzf linux-amd64-filebrowser.tar.gz
-RUN chmod a+x filebrowser
-RUN mv filebrowser /home/amule/.aMule
-RUN rm linux-amd64-filebrowser.tar.gz
+RUN wget -O "caddy.tar.gz" "https://caddyserver.com/download/linux/amd64?plugins=http.filemanager&license=personal"
+RUN tar zxvf caddy.tar.gz
+RUN mv caddy /usr/bin/
+RUN rm -rf ./init
 
 # Add startup script
+
+ADD Caddyfile /etc/Caddyfile
 
 ADD *.sh /home/amule/
 
