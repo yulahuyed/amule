@@ -230,6 +230,6 @@ then
     crond -c /home/amule/cron
 fi
 
-nohup /home/amule/.aMule/filebrowser --port 8080 --no-auth > /dev/null 2>&1 &
+nohup /usr/bin/caddy --conf /etc/Caddyfile > /dev/null 2>&1 &
 
 /usr/bin/amuled -c ${AMULE_HOME} -o 
