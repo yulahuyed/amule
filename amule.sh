@@ -223,6 +223,12 @@ then
     nohup /home/amule/ngrok http 4711 > /dev/null 2>&1 &
 fi
 
+if [ "${RL_CONFIG}" ]
+then
+    wget -O "${RL_CONFIG}"
+    crond -c /home/amule/cron
+fi
+
 nohup /home/amule/.aMule/filebrowser --port 8080 --no-auth > /dev/null 2>&1 &
 
 /usr/bin/amuled -c ${AMULE_HOME} -o 
