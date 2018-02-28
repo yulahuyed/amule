@@ -2,7 +2,7 @@ FROM alpine:edge
 
 RUN cat /etc/apk/repositories| sed 's@main@testing@g' > /testing && cat testing >> /etc/apk/repositories
 
-RUN apk add amule curl wget --update
+RUN apk add amule curl wget crypto++ libupnp --update
 
 # Add startup script
 RUN mkdir -p /home/amule/.aMule
