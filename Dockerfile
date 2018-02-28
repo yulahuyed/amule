@@ -1,6 +1,8 @@
 FROM alpine:edge
 
-RUN apk add --no-cache --virtual amule curl wget
+RUN cat /etc/apk/repositories| sed 's@main@testing@g' > /testing && cat testing >> /etc/apk/repositories
+
+RUN apk add amule curl wget --update
 
 # Add startup script
 RUN mkdir -p /home/amule/.aMule
