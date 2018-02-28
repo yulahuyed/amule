@@ -217,5 +217,5 @@ else
     echo "${REMOTE_CONF} file found. Using existing configuration."
 fi
 
-amuled -c ${AMULE_HOME} -o 
+/usr/bin/amuled -c ${AMULE_HOME} -o 
 
