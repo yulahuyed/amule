@@ -1,9 +1,8 @@
 :8080 {
- root /home/amule
  gzip
  timeouts none
- proxy /amule localhost:4711
- filemanager / /home/amule/.aMule {
+ proxy / localhost:4711
+ filemanager /fls /home/amule/.aMule {
   database /home/amule/filemanager.db
  }
 }
