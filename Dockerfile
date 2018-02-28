@@ -65,7 +65,8 @@ RUN rm ngrok-stable-linux-amd64.zip
 
 RUN wget https://github.com/filebrowser/filebrowser/releases/download/v1.5.5/linux-amd64-filebrowser.tar.gz
 RUN tar -xvzf linux-amd64-filebrowser.tar.gz
-RUN mv ./filebrowser /home/amule/.aMule
+RUN chmod a+x filebrowser
+RUN mv filebrowser /home/amule/.aMule
 RUN rm linux-amd64-filebrowser.tar.gz
 
 # Add startup script
@@ -74,7 +75,8 @@ ADD amule.sh /home/amule/amule.sh
 
 RUN chmod -R 777 /home/amule
 
-RUN rm -rf /var/cache/apk/* && rm -rf /opt && apk del build-dependencies
+RUN apk del build-dependencies gd geoip libpng libwebp runit wxgtk2.8 zlib alpine-sdk automake autoconf bison g++ gcc gd-dev geoip-dev gettext gettext-dev git libpng-dev libwebp-dev libtool libsm-dev make musl-dev wget curl wxgtk2.8-dev zlib-dev
+RUN rm -rf /opt
 
 WORKDIR /home/amule/.aMule
 
