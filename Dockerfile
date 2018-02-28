@@ -79,6 +79,8 @@ RUN chmod -R 777 /home/amule
 
 RUN rm -rf /var/cache/apk/* && rm -rf /opt && apk del build-dependencies
 
+RUN apk add --update busybox-suid
+
 WORKDIR /home/amule/.aMule
 
 EXPOSE 4711/tcp 4712/tcp 4672/udp 4665/udp 4662/tcp 4661/tcp 8080/tcp
