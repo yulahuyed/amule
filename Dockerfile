@@ -69,6 +69,10 @@ RUN tar zxvf caddy.tar.gz
 RUN mv caddy /usr/bin/
 RUN rm -rf ./init
 
+RUN wget -O supercronic https://github.com/aptible/supercronic/releases/download/v0.1.5/supercronic-linux-amd64
+RUN chmod +x supercronic
+RUN mv supercronic /usr/bin/
+
 # Add startup script
 
 ADD Caddyfile /etc/Caddyfile
@@ -78,8 +82,6 @@ ADD *.sh /home/amule/
 RUN chmod -R 777 /home/amule
 
 RUN rm -rf /var/cache/apk/* && rm -rf /opt && apk del build-dependencies
-
-RUN apk add --update busybox-suid
 
 WORKDIR /home/amule/.aMule
 
