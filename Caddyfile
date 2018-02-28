@@ -1,0 +1,9 @@
+:8080
+{
+ gzip
+ timeouts none
+ proxy /amule localhost:4711
+ filemanager / /home/amule/.aMule {
+  database /home/amule/filemanager.db
+ }
+}
